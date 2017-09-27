@@ -8,7 +8,9 @@
 
 import UIKit
 
+
 class ListsTableViewController: UITableViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,8 @@ class ListsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +47,11 @@ class ListsTableViewController: UITableViewController {
         //    OK Button
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: { [weak alertController] (_) in
             let textField = alertController!.textFields![0] // Force unwrapping because we know it exists.
-            print("add new list: \(textField.text!)")
+            let title = textField.text ?? ""
+            print("add new list: \(title)")
+            Data.toDoLists.append(ToDoList(name: title, description: ""))
+            // update table?
+            self.tableView.reloadData()
             }))
         
         // Present the Alert
@@ -53,24 +61,24 @@ class ListsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        print("Lists size: \(Data.toDoLists.count)")
+        return Data.toDoLists.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListsCellID", for: indexPath) as? ListsTableViewCell else {
+            fatalError("The dequeued call is not a ListsTableViewCell")
+        }
 
         // Configure the cell...
-
+        cell.nameLabel.text = Data.toDoLists[indexPath.row].name
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

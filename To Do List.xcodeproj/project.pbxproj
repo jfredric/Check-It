@@ -16,6 +16,7 @@
 		EF3738561F7C22E5002D49E1 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */; };
 		EF3738581F7C2318002D49E1 /* ListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3738571F7C2318002D49E1 /* ListsTableViewCell.swift */; };
 		EF37385A1F7C2333002D49E1 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */; };
+		EF37385C1F7C2C83002D49E1 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37385B1F7C2C83002D49E1 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		EF3738571F7C2318002D49E1 /* ListsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsTableViewCell.swift; sourceTree = "<group>"; };
 		EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		EF37385B1F7C2C83002D49E1 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +65,12 @@
 			isa = PBXGroup;
 			children = (
 				EF37383E1F7B7937002D49E1 /* AppDelegate.swift */,
-				EF3738421F7B7937002D49E1 /* Main.storyboard */,
 				EF3738531F7C2297002D49E1 /* ListsTableViewController.swift */,
 				EF3738571F7C2318002D49E1 /* ListsTableViewCell.swift */,
 				EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */,
 				EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */,
+				EF3738421F7B7937002D49E1 /* Main.storyboard */,
+				EF37385B1F7C2C83002D49E1 /* Data.swift */,
 				EF3738481F7B7937002D49E1 /* Assets.xcassets */,
 				EF37384A1F7B7937002D49E1 /* LaunchScreen.storyboard */,
 				EF37384D1F7B7937002D49E1 /* Info.plist */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF37385C1F7C2C83002D49E1 /* Data.swift in Sources */,
 				EF37385A1F7C2333002D49E1 /* TasksTableViewCell.swift in Sources */,
 				EF3738561F7C22E5002D49E1 /* TasksTableViewController.swift in Sources */,
 				EF3738581F7C2318002D49E1 /* ListsTableViewCell.swift in Sources */,
