@@ -281,6 +281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D2UCX5FZW;
 				INFOPLIST_FILE = "To Do List/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dustykeyboard.To-Do-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,6 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D2UCX5FZW;
 				INFOPLIST_FILE = "To Do List/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dustykeyboard.To-Do-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";

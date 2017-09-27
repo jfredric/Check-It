@@ -21,6 +21,11 @@
 
 ---
 
+#### Resources and Credits
+
+* Checkbox icon from [icons8.com](https://icons8.com/icon/set/checkbox/ios7)
+* Add icon from [icons8.com](https://icons8.com/icon/set/add/ios7)
+
 #### Useful Resources
 
 * [iOS Developer Documentation](https://developer.apple.com/library/ios/navigation/)
