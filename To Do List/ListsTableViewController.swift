@@ -26,16 +26,25 @@ class ListsTableViewController: UITableViewController {
     }
     // MARK: - Actions
     
+    // Show an alert for text input when the user taps the add button in the nav bar
     @IBAction func addBarButtonTapped(_ sender: UIBarButtonItem) {
         // Create the Alert Controller
-        let alertController = UIAlertController(title: "Add New List", message:
-            "[ text field here... ]", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "Add", message:
+            "enter a name for your list", preferredStyle: UIAlertControllerStyle.alert)
         
-        // the button actions - Left to right
+        // add text field for title/name
+        alertController.addTextField { (textField) in
+            textField.text = "List Name" //default text. Change to empty after testing.
+        }
+        
+        // add the button actions - Left to right
         //    Cancel Button
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
         //    OK Button
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: { [weak alertController] (_) in
+            let textField = alertController!.textFields![0] // Force unwrapping because we know it exists.
+            print("add new list: \(textField.text!)")
+            }))
         
         // Present the Alert
         self.present(alertController, animated: true, completion: nil)
