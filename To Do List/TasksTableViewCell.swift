@@ -9,8 +9,9 @@
 import UIKit
 
 class TasksTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var checkBoxButon: UIButton!
+    var selectedTask: Task = Task(title: "Unknown", description: "", status: false)
+    
+    @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var taskNameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -19,12 +20,26 @@ class TasksTableViewCell: UITableViewCell {
     }
     
     @IBAction func checkBoxSelected(_ sender: UIButton) {
+        selectedTask.status = !selectedTask.status
+        updateOutlets()
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateOutlets() {
+        
+        taskNameLabel.text = selectedTask.title
+        
+        if selectedTask.status { //completed
+            checkBoxButton.setImage(UIImage(named: "Checkbox Checked"), for: UIControlState.normal)
+        } else { // incomplete
+            checkBoxButton.setImage(UIImage(named: "Checkbox Unchecked"), for: UIControlState.normal)
+        }
     }
 
 }

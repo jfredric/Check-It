@@ -105,7 +105,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkBoxButon" destination="M1y-MD-3fJ" id="LNl-as-0tV"/>
+                                    <outlet property="checkBoxButton" destination="M1y-MD-3fJ" id="NnE-TY-twq"/>
                                     <outlet property="taskNameLabel" destination="fwV-Qq-KgC" id="uAq-LG-0Y6"/>
                                 </connections>
                             </tableViewCell>

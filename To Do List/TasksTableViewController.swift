@@ -81,8 +81,8 @@ class TasksTableViewController: UITableViewController {
         }
 
         // Configure the cell...
-        cell.taskNameLabel.text = currentList.openTasks[indexPath.row].title
-        
+        cell.selectedTask = currentList.openTasks[indexPath.row]
+        cell.updateOutlets()
 
         return cell
     }
