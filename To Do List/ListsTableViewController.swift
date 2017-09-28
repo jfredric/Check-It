@@ -21,7 +21,8 @@ class ListsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
+        //tableView.separatorColor = .clear
+        //tableView.separatorStyle = .none
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +30,12 @@ class ListsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     // MARK: - Actions
+    
+    @IBAction func addSampleBarButtonTapped(_ sender: Any) {
+        addSampleData()
+        
+        self.tableView.reloadData()
+    }
     
     // Show an alert for text input when the user taps the add button in the nav bar
     @IBAction func addBarButtonTapped(_ sender: UIBarButtonItem) {

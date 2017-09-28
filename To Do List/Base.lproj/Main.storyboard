@@ -13,31 +13,55 @@
         <scene sceneID="3tf-ig-bbW">
             <objects>
                 <tableViewController id="Vwb-V5-4YS" userLabel="Lists Table View Controller" customClass="ListsTableViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mhJ-El-zmE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="68" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mhJ-El-zmE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListCellID" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListsCellID" rowHeight="60" id="nhV-k8-FfZ" userLabel="List Table View Cell" customClass="ListsTableViewCell" customModule="To_Do_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListCellID" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListsCellID" rowHeight="68" id="nhV-k8-FfZ" userLabel="List Table View Cell" customClass="ListsTableViewCell" customModule="To_Do_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhV-k8-FfZ" id="Lsk-YQ-jVN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZJ-D7-pON" userLabel="List Name Label">
-                                            <rect key="frame" x="8" y="15.5" width="359" height="29"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1o-nH-2vH" userLabel="Cropped View">
+                                            <rect key="frame" x="8" y="8" width="359" height="60"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZJ-D7-pON" userLabel="List Name Label">
+                                                    <rect key="frame" x="8" y="15.5" width="343" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="4Rl-5U-u2c"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jZJ-D7-pON" secondAttribute="trailing" id="Jhp-md-65n"/>
+                                                <constraint firstItem="jZJ-D7-pON" firstAttribute="leading" secondItem="M1o-nH-2vH" secondAttribute="leadingMargin" id="Vzf-Dk-6Lm"/>
+                                                <constraint firstItem="jZJ-D7-pON" firstAttribute="centerY" secondItem="M1o-nH-2vH" secondAttribute="centerY" id="aCF-xt-pci"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="jZJ-D7-pON" firstAttribute="leading" secondItem="Lsk-YQ-jVN" secondAttribute="leadingMargin" id="97A-1Q-c5j"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="jZJ-D7-pON" secondAttribute="trailing" id="IGy-gO-v9q"/>
-                                        <constraint firstItem="jZJ-D7-pON" firstAttribute="centerY" secondItem="Lsk-YQ-jVN" secondAttribute="centerY" id="oxB-LV-McU"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="M1o-nH-2vH" secondAttribute="trailing" id="4u7-sk-YZW"/>
+                                        <constraint firstItem="M1o-nH-2vH" firstAttribute="top" secondItem="Lsk-YQ-jVN" secondAttribute="topMargin" id="A3p-0D-zPq"/>
+                                        <constraint firstItem="M1o-nH-2vH" firstAttribute="leading" secondItem="Lsk-YQ-jVN" secondAttribute="leadingMargin" id="Cei-lP-Hoy"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="nameLabel" destination="jZJ-D7-pON" id="xUn-1z-0gE"/>
                                     <segue destination="3rr-Li-vP5" kind="show" identifier="ShowList" id="kfo-t8-rTE"/>
@@ -50,6 +74,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To Do Lists" id="TFD-Gq-Lde" userLabel="To Do Lists Navigation Bar">
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="BUC-Vm-moG" userLabel="Load Sample Data">
+                            <connections>
+                                <action selector="addSampleBarButtonTapped:" destination="Vwb-V5-4YS" id="fgq-An-Pek"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5BE-wv-AgP">
                             <connections>
                                 <action selector="addBarButtonTapped:" destination="Vwb-V5-4YS" id="d5y-iT-vSP"/>
@@ -78,34 +107,55 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1y-MD-3fJ" userLabel="Complete Checkbox Button">
-                                            <rect key="frame" x="16" y="10" width="20" height="20"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8R-oy-de8" userLabel="CB Container View">
+                                            <rect key="frame" x="8" y="-1" width="40" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1y-MD-3fJ" userLabel="CheckBox Button">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="WCx-cm-j2H"/>
+                                                        <constraint firstAttribute="height" constant="40" id="fuW-me-qMu"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="checkBoxSelected:" destination="3fR-eA-IP4" eventType="touchUpInside" id="dw7-jq-TXk"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkbox Unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="5Tt-Uw-n4U" userLabel="CheckBox Image">
+                                                    <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="65e-Sd-ovI"/>
+                                                        <constraint firstAttribute="width" constant="20" id="p0f-9D-id2"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="6Nk-1X-Oc9"/>
-                                                <constraint firstAttribute="width" constant="20" id="Uda-1M-18i"/>
+                                                <constraint firstAttribute="width" constant="40" id="5OT-Dh-Rk0"/>
+                                                <constraint firstItem="M1y-MD-3fJ" firstAttribute="centerY" secondItem="m8R-oy-de8" secondAttribute="centerY" id="DHN-yS-VpZ"/>
+                                                <constraint firstItem="5Tt-Uw-n4U" firstAttribute="centerY" secondItem="m8R-oy-de8" secondAttribute="centerY" id="J9P-Mo-cUy"/>
+                                                <constraint firstItem="M1y-MD-3fJ" firstAttribute="centerX" secondItem="m8R-oy-de8" secondAttribute="centerX" id="a7n-DE-H7s"/>
+                                                <constraint firstItem="5Tt-Uw-n4U" firstAttribute="centerX" secondItem="m8R-oy-de8" secondAttribute="centerX" id="lUI-ao-EKT"/>
+                                                <constraint firstAttribute="height" constant="40" id="mDJ-VG-C97"/>
                                             </constraints>
-                                            <state key="normal" image="Checkbox Unchecked"/>
-                                            <connections>
-                                                <action selector="checkBoxSelected:" destination="3fR-eA-IP4" eventType="touchUpInside" id="dw7-jq-TXk"/>
-                                            </connections>
-                                        </button>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-Qq-KgC" userLabel="Task Label">
-                                            <rect key="frame" x="52" y="9.5" width="315" height="20.5"/>
+                                            <rect key="frame" x="56" y="9.5" width="311" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="fwV-Qq-KgC" firstAttribute="leading" secondItem="M1y-MD-3fJ" secondAttribute="trailing" constant="16" id="KA4-4P-amq"/>
+                                        <constraint firstItem="m8R-oy-de8" firstAttribute="leading" secondItem="k3s-ny-tx6" secondAttribute="leadingMargin" id="3V3-gI-34O"/>
+                                        <constraint firstItem="m8R-oy-de8" firstAttribute="centerY" secondItem="k3s-ny-tx6" secondAttribute="centerY" id="9bN-4f-tbd"/>
                                         <constraint firstItem="fwV-Qq-KgC" firstAttribute="centerY" secondItem="k3s-ny-tx6" secondAttribute="centerY" id="Nvl-lk-Buf"/>
+                                        <constraint firstItem="fwV-Qq-KgC" firstAttribute="leading" secondItem="m8R-oy-de8" secondAttribute="trailing" constant="8" id="Q25-zl-AIw"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fwV-Qq-KgC" secondAttribute="trailing" id="egq-Li-pVm"/>
-                                        <constraint firstItem="M1y-MD-3fJ" firstAttribute="centerY" secondItem="k3s-ny-tx6" secondAttribute="centerY" id="fi7-4r-nNu"/>
-                                        <constraint firstItem="M1y-MD-3fJ" firstAttribute="leading" secondItem="k3s-ny-tx6" secondAttribute="leadingMargin" constant="8" id="hP0-s6-Khs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="checkBoxButton" destination="M1y-MD-3fJ" id="NnE-TY-twq"/>
+                                    <outlet property="checkBoxImage" destination="5Tt-Uw-n4U" id="Frv-Wu-Qfc"/>
                                     <outlet property="taskNameLabel" destination="fwV-Qq-KgC" id="uAq-LG-0Y6"/>
                                 </connections>
                             </tableViewCell>
@@ -115,6 +165,7 @@
                             <outlet property="delegate" destination="3rr-Li-vP5" id="vhf-QI-LbF"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="List Name" id="0Is-a0-dWw">
                         <barButtonItem key="backBarButtonItem" title="All Lists" id="Y41-AC-M7W"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Iws-Jc-oqH">
@@ -123,7 +174,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="navBar" destination="0Is-a0-dWw" id="G8Q-7o-oZe"/>
                     </connections>

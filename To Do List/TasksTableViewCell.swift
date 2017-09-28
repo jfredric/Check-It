@@ -12,6 +12,7 @@ class TasksTableViewCell: UITableViewCell {
     var selectedTask: Task = Task(title: "Unknown", description: "", status: false)
     
     @IBOutlet weak var checkBoxButton: UIButton!
+    @IBOutlet weak var checkBoxImage: UIImageView!
     @IBOutlet weak var taskNameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -36,9 +37,9 @@ class TasksTableViewCell: UITableViewCell {
         taskNameLabel.text = selectedTask.title
         
         if selectedTask.status { //completed
-            checkBoxButton.setImage(UIImage(named: "Checkbox Checked"), for: UIControlState.normal)
+            checkBoxImage.image = UIImage(named: "Checkbox Checked")
         } else { // incomplete
-            checkBoxButton.setImage(UIImage(named: "Checkbox Unchecked"), for: UIControlState.normal)
+            checkBoxImage.image = UIImage(named: "Checkbox Unchecked")
         }
     }
 

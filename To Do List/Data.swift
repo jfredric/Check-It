@@ -35,7 +35,7 @@ class ToDoList {
         if taskIndex >= openTasks.count {
             fatalError("out of bounds on 'openTasks'")
         }
-        var completedTask = openTasks[taskIndex]
+        let completedTask = openTasks[taskIndex]
         completedTask.status = true
         closedTasks.insert(completedTask, at: 0)
         openTasks.remove(at: taskIndex)
@@ -45,7 +45,7 @@ class ToDoList {
         if taskIndex >= closedTasks.count {
             fatalError("out of bounds on 'closedTasks'")
         }
-        var completedTask = openTasks[taskIndex]
+        let completedTask = openTasks[taskIndex]
         completedTask.status = false
         openTasks.append(completedTask)
         closedTasks.remove(at: taskIndex)
@@ -57,4 +57,30 @@ class Data {
     
     static var toDoLists: [ToDoList] = []
     
+}
+
+func addSampleData() {
+    let groceryList = ToDoList(name: "Groceries", description: "")
+    groceryList.openTasks.append(Task(title: "Milk", description: "", status: false))
+    groceryList.openTasks.append(Task(title: "eggs", description: "", status: false))
+    groceryList.openTasks.append(Task(title: "cheese", description: "", status: false))
+    groceryList.openTasks.append(Task(title: "bread", description: "", status: false))
+    groceryList.openTasks.append(Task(title: "beer", description: "", status: false))
+    Data.toDoLists.append(groceryList)
+    
+    let choresList = ToDoList(name: "Chores", description: "")
+    choresList.openTasks.append(Task(title: "Dishes", description: "", status: false))
+    choresList.openTasks.append(Task(title: "Sweep", description: "", status: false))
+    choresList.openTasks.append(Task(title: "Wash Car", description: "", status: true))
+    choresList.openTasks.append(Task(title: "Mow Lawn", description: "", status: true))
+    choresList.openTasks.append(Task(title: "clean toilets", description: "", status: false))
+    Data.toDoLists.append(choresList)
+    
+    let projectsList = ToDoList(name: "Projects", description: "")
+    projectsList.openTasks.append(Task(title: "Week 2 Lab", description: "", status: true))
+    projectsList.openTasks.append(Task(title: "Project 1", description: "", status: false))
+    projectsList.openTasks.append(Task(title: "Some App", description: "", status: false))
+    projectsList.openTasks.append(Task(title: "Build Desk ", description: "", status: true))
+    projectsList.openTasks.append(Task(title: "build storage workbench", description: "", status: false))
+    Data.toDoLists.append(projectsList)
 }
