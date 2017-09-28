@@ -98,10 +98,12 @@ class TasksTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            currentList.openTasks.remove(at: indexPath.row)
-            // Delete the row from the tableView
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            confirmAlert(message: "Are you sure you want to delete task '\(currentList.openTasks[indexPath.row].title)'?", from: self, forYes: { (_) in
+                // Delete the row from the data source
+                self.currentList.openTasks.remove(at: indexPath.row)
+                // Delete the row from the tableView
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
         } else if editingStyle == .insert { // how is this used???
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             
