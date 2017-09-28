@@ -1,3 +1,4 @@
+
 //
 //  TasksTableViewController.swift
 //  To Do List
@@ -9,7 +10,11 @@
 import UIKit
 
 class TasksTableViewController: UITableViewController {
+    
+    var currentList: ToDoList = ToDoList(name: "", description: "") // current to do list
 
+    @IBOutlet weak var navBar: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,34 +23,45 @@ class TasksTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navBar.title = currentList.name
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
 
+    // MARK: Actions
+    
+    @IBAction func addNavButtonTapped(_ sender: Any) {
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return currentList.openTasks.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCellID", for: indexPath) as? TasksTableViewCell else {
+            fatalError("The dequeued call is not a TasksTableViewCell")
+        }
 
         // Configure the cell...
+        cell.taskNameLabel.text = currentList.openTasks[indexPath.row].title
+        
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,13 +98,15 @@ class TasksTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        
     }
     */
 

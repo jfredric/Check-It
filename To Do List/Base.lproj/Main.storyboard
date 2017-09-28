@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhV-k8-FfZ" id="Lsk-YQ-jVN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZJ-D7-pON" userLabel="List Name Label">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZJ-D7-pON" userLabel="List Name Label">
                                             <rect key="frame" x="8" y="15.5" width="359" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
@@ -41,7 +41,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="jZJ-D7-pON" id="xUn-1z-0gE"/>
-                                    <segue destination="3rr-Li-vP5" kind="show" id="kfo-t8-rTE"/>
+                                    <segue destination="3rr-Li-vP5" kind="show" identifier="ShowList" id="kfo-t8-rTE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,15 +76,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fR-eA-IP4" id="k3s-ny-tx6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1y-MD-3fJ" userLabel="Complete Checkbox Button">
-                                            <rect key="frame" x="8" y="8" width="27.5" height="27.5"/>
+                                            <rect key="frame" x="8" y="12" width="19.5" height="19.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="M1y-MD-3fJ" secondAttribute="height" multiplier="1:1" id="CgJ-KY-9mh"/>
                                             </constraints>
                                             <state key="normal" image="Checkbox Unchecked"/>
+                                            <connections>
+                                                <action selector="checkBoxSelected:" destination="3fR-eA-IP4" eventType="touchUpInside" id="dw7-jq-TXk"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-Qq-KgC" userLabel="Task Label">
                                             <rect key="frame" x="43.5" y="11.5" width="323.5" height="21"/>
@@ -94,15 +97,19 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="M1y-MD-3fJ" secondAttribute="bottom" id="Hpe-0l-88Z"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="M1y-MD-3fJ" secondAttribute="bottom" constant="4" id="Hpe-0l-88Z"/>
                                         <constraint firstItem="M1y-MD-3fJ" firstAttribute="leading" secondItem="k3s-ny-tx6" secondAttribute="leadingMargin" id="Is7-Ld-2Ui"/>
-                                        <constraint firstItem="M1y-MD-3fJ" firstAttribute="top" secondItem="k3s-ny-tx6" secondAttribute="topMargin" id="Ivu-eB-BCk"/>
-                                        <constraint firstItem="fwV-Qq-KgC" firstAttribute="leading" secondItem="M1y-MD-3fJ" secondAttribute="trailing" constant="8" id="KA4-4P-amq"/>
+                                        <constraint firstItem="M1y-MD-3fJ" firstAttribute="top" secondItem="k3s-ny-tx6" secondAttribute="topMargin" constant="4" id="Ivu-eB-BCk"/>
+                                        <constraint firstItem="fwV-Qq-KgC" firstAttribute="leading" secondItem="M1y-MD-3fJ" secondAttribute="trailing" constant="16" id="KA4-4P-amq"/>
                                         <constraint firstItem="fwV-Qq-KgC" firstAttribute="centerY" secondItem="k3s-ny-tx6" secondAttribute="centerY" id="Nvl-lk-Buf"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fwV-Qq-KgC" secondAttribute="trailing" id="egq-Li-pVm"/>
                                         <constraint firstItem="M1y-MD-3fJ" firstAttribute="centerY" secondItem="k3s-ny-tx6" secondAttribute="centerY" id="fi7-4r-nNu"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkBoxButon" destination="M1y-MD-3fJ" id="LNl-as-0tV"/>
+                                    <outlet property="taskNameLabel" destination="fwV-Qq-KgC" id="uAq-LG-0Y6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -110,11 +117,18 @@
                             <outlet property="delegate" destination="3rr-Li-vP5" id="vhf-QI-LbF"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="add" selectedImage="add-filled" id="9Op-Zn-Dhu" userLabel="Add Tab Bar Item"/>
                     <navigationItem key="navigationItem" title="List Name" id="0Is-a0-dWw">
                         <barButtonItem key="backBarButtonItem" title="All Lists" id="Y41-AC-M7W"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Iws-Jc-oqH">
+                            <connections>
+                                <action selector="addNavButtonTapped:" destination="3rr-Li-vP5" id="YcX-6D-aZL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="navBar" destination="0Is-a0-dWw" id="G8Q-7o-oZe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vz8-fM-oeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +155,5 @@
     </scenes>
     <resources>
         <image name="Checkbox Unchecked" width="50" height="50"/>
-        <image name="add" width="50" height="50"/>
-        <image name="add-filled" width="50" height="50"/>
     </resources>
 </document>
