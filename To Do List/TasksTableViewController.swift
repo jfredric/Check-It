@@ -36,7 +36,31 @@ class TasksTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func addNavButtonTapped(_ sender: Any) {
+        // Create the Alert Controller
+        let alertController = UIAlertController(title: "Add", message:
+            "enter a description for you last", preferredStyle: UIAlertControllerStyle.alert)
         
+        // add text field for title/name
+        alertController.addTextField { (textField) in
+            textField.text = "Task to do" //default text. Change to empty after testing.
+            textField.placeholder = "Task to do"
+        }
+        
+        // add the button actions - Left to right
+        //    Cancel Button
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
+        //    OK Button
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: { [weak alertController] (_) in
+            let textField = alertController!.textFields![0] // Force unwrapping because we know it exists.
+            let title = textField.text ?? ""
+            print("add new tasks to \(self.currentList.name): \(title)")
+            self.currentList.openTasks.append(Task(title: title, description: "", status: false))
+            // update table
+            self.tableView.reloadData()
+        }))
+        
+        // Present the Alert
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
@@ -52,7 +76,7 @@ class TasksTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCellID", for: indexPath) as? TasksTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCellID", for: indexPath) as? TasksTableViewCell else {
             fatalError("The dequeued call is not a TasksTableViewCell")
         }
 
@@ -71,17 +95,18 @@ class TasksTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            currentList.openTasks.remove(at: indexPath.row)
+            // Delete the row from the tableView
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+        } else if editingStyle == .insert { // how is this used???
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

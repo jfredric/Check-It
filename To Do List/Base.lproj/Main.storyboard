@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,17 +71,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCellID" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCellID" id="3fR-eA-IP4" userLabel="Task Table View Cell" customClass="TasksTableViewCell" customModule="To_Do_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCellID" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCellID" rowHeight="40" id="3fR-eA-IP4" userLabel="Task Table View Cell" customClass="TasksTableViewCell" customModule="To_Do_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fR-eA-IP4" id="k3s-ny-tx6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1y-MD-3fJ" userLabel="Complete Checkbox Button">
-                                            <rect key="frame" x="8" y="12" width="19.5" height="19.5"/>
+                                            <rect key="frame" x="16" y="10" width="20" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="M1y-MD-3fJ" secondAttribute="height" multiplier="1:1" id="CgJ-KY-9mh"/>
+                                                <constraint firstAttribute="height" constant="20" id="6Nk-1X-Oc9"/>
+                                                <constraint firstAttribute="width" constant="20" id="Uda-1M-18i"/>
                                             </constraints>
                                             <state key="normal" image="Checkbox Unchecked"/>
                                             <connections>
@@ -90,20 +90,18 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-Qq-KgC" userLabel="Task Label">
-                                            <rect key="frame" x="43.5" y="11.5" width="323.5" height="21"/>
+                                            <rect key="frame" x="52" y="9.5" width="315" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="M1y-MD-3fJ" secondAttribute="bottom" constant="4" id="Hpe-0l-88Z"/>
-                                        <constraint firstItem="M1y-MD-3fJ" firstAttribute="leading" secondItem="k3s-ny-tx6" secondAttribute="leadingMargin" id="Is7-Ld-2Ui"/>
-                                        <constraint firstItem="M1y-MD-3fJ" firstAttribute="top" secondItem="k3s-ny-tx6" secondAttribute="topMargin" constant="4" id="Ivu-eB-BCk"/>
                                         <constraint firstItem="fwV-Qq-KgC" firstAttribute="leading" secondItem="M1y-MD-3fJ" secondAttribute="trailing" constant="16" id="KA4-4P-amq"/>
                                         <constraint firstItem="fwV-Qq-KgC" firstAttribute="centerY" secondItem="k3s-ny-tx6" secondAttribute="centerY" id="Nvl-lk-Buf"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fwV-Qq-KgC" secondAttribute="trailing" id="egq-Li-pVm"/>
                                         <constraint firstItem="M1y-MD-3fJ" firstAttribute="centerY" secondItem="k3s-ny-tx6" secondAttribute="centerY" id="fi7-4r-nNu"/>
+                                        <constraint firstItem="M1y-MD-3fJ" firstAttribute="leading" secondItem="k3s-ny-tx6" secondAttribute="leadingMargin" constant="8" id="hP0-s6-Khs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
