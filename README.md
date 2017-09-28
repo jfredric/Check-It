@@ -1,8 +1,12 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #1: To Do List
 
+
 ### Description
 
-(tbd)
+(work in progress)
+
+**Team Members**
+- Joshua Fredrickson ([github.com/jfredric](https://github.com/jfredric))
 
 ---
 
