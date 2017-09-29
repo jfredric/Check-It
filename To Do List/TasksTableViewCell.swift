@@ -37,8 +37,10 @@ class TasksTableViewCell: UITableViewCell {
         taskNameLabel.text = selectedTask.title
         
         if selectedTask.status { //completed
+            taskNameLabel.textColor = UIColor.lightGray
             checkBoxImage.image = UIImage(named: "Checkbox Checked")
         } else { // incomplete
+            //taskNameLabel.textColor = UIColor.black
             checkBoxImage.image = UIImage(named: "Checkbox Unchecked")
         }
     }

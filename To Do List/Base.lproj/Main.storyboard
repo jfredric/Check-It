@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -168,15 +169,23 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="List Name" id="0Is-a0-dWw">
                         <barButtonItem key="backBarButtonItem" title="All Lists" id="Y41-AC-M7W"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Iws-Jc-oqH">
-                            <connections>
-                                <action selector="addNavButtonTapped:" destination="3rr-Li-vP5" id="YcX-6D-aZL"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Iws-Jc-oqH">
+                                <connections>
+                                    <action selector="addNavButtonTapped:" destination="3rr-Li-vP5" id="YcX-6D-aZL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="show ✓" id="B2I-Ka-BrA">
+                                <connections>
+                                    <action selector="showCompletedButtonTapped:" destination="3rr-Li-vP5" id="G0P-Fu-knE"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="navBar" destination="0Is-a0-dWw" id="G8Q-7o-oZe"/>
+                        <outlet property="showCompletedButton" destination="B2I-Ka-BrA" id="eB8-7B-mDg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vz8-fM-oeF" userLabel="First Responder" sceneMemberID="firstResponder"/>

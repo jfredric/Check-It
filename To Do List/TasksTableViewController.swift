@@ -12,7 +12,8 @@ import UIKit
 class TasksTableViewController: UITableViewController {
     
     var currentList: ToDoList = ToDoList(name: "", description: "") // current to do list
-
+    
+    @IBOutlet weak var showCompletedButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationItem!
     
     override func viewDidLoad() {
@@ -23,8 +24,10 @@ class TasksTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        navBar.title = currentList.name
         
+        //navBar.title = currentList.name // This isn't working
+        
+        updateShowCompletedButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,16 +66,28 @@ class TasksTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func showCompletedButtonTapped(_ sender: Any) {
+        
+        // Toggle show state
+        currentList.showCompleted = !currentList.showCompleted
+        updateShowCompletedButton()
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return currentList.openTasks.count
+        if currentList.showCompleted {
+            print("showing all")
+            return currentList.openTasks.count + currentList.closedTasks.count
+        } else {
+            print("showing open")
+            return currentList.openTasks.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,7 +96,11 @@ class TasksTableViewController: UITableViewController {
         }
 
         // Configure the cell...
-        cell.selectedTask = currentList.openTasks[indexPath.row]
+        if indexPath.row < currentList.openTasks.count {
+            cell.selectedTask = currentList.openTasks[indexPath.row]
+        } else {
+            cell.selectedTask = currentList.closedTasks[indexPath.row - currentList.openTasks.count]
+        }
         cell.updateOutlets()
 
         return cell
@@ -136,5 +155,13 @@ class TasksTableViewController: UITableViewController {
         
     }
     */
+    
+    func updateShowCompletedButton() {
+        if currentList.showCompleted {
+            showCompletedButton.title = "hide ✓"
+        } else {
+            showCompletedButton.title = "show ✓"
+        }
+    }
 
 }

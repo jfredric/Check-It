@@ -25,6 +25,7 @@ class ToDoList {
     var openTasks: [Task] = []
     var closedTasks: [Task] = []
     var description: String = ""
+    var showCompleted: Bool = false
     
     init(name newName: String, description newDesc: String) {
         name = newName
@@ -71,16 +72,16 @@ func addSampleData() {
     let choresList = ToDoList(name: "Chores", description: "")
     choresList.openTasks.append(Task(title: "Dishes", description: "", status: false))
     choresList.openTasks.append(Task(title: "Sweep", description: "", status: false))
-    choresList.openTasks.append(Task(title: "Wash Car", description: "", status: true))
-    choresList.openTasks.append(Task(title: "Mow Lawn", description: "", status: true))
     choresList.openTasks.append(Task(title: "clean toilets", description: "", status: false))
+    choresList.closedTasks.append(Task(title: "Wash Car", description: "", status: true))
+    choresList.closedTasks.append(Task(title: "Mow Lawn", description: "", status: true))
     Data.toDoLists.append(choresList)
     
     let projectsList = ToDoList(name: "Projects", description: "")
-    projectsList.openTasks.append(Task(title: "Week 2 Lab", description: "", status: true))
     projectsList.openTasks.append(Task(title: "Project 1", description: "", status: false))
     projectsList.openTasks.append(Task(title: "Some App", description: "", status: false))
-    projectsList.openTasks.append(Task(title: "Build Desk ", description: "", status: true))
-    projectsList.openTasks.append(Task(title: "build storage workbench", description: "", status: false))
+    projectsList.openTasks.append(Task(title: "storage workbench", description: "", status: false))
+    projectsList.closedTasks.append(Task(title: "Build Desk ", description: "", status: true))
+    projectsList.closedTasks.append(Task(title: "Week 2 Lab", description: "", status: true))
     Data.toDoLists.append(projectsList)
 }
