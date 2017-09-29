@@ -29,6 +29,8 @@ class TasksTableViewController: UITableViewController {
         
         //navBar.title = currentList.name // This isn't working
         
+        self.title = currentList.name
+        //navBar.backBarButtonItem?.title = "" // Does not work
         updateShowCompletedButton()
     }
 

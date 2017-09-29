@@ -106,7 +106,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fR-eA-IP4" id="k3s-ny-tx6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8R-oy-de8" userLabel="CB Container View">
@@ -169,7 +169,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="List Name" id="0Is-a0-dWw">
-                        <barButtonItem key="backBarButtonItem" title="All Lists" id="Y41-AC-M7W"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="Iws-Jc-oqH">
                                 <connections>
