@@ -10,6 +10,9 @@ import UIKit
 
 class TasksTableViewCell: UITableViewCell {
     var selectedTask: Task = Task(title: "Unknown", description: "", status: false)
+    var currentList: ToDoList = ToDoList(name: "Unknown", description: "")
+    var taskIndex: Int?
+    var updateTasksTable: (() -> ())? = nil
     
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var checkBoxImage: UIImageView!
@@ -22,8 +25,17 @@ class TasksTableViewCell: UITableViewCell {
     
     @IBAction func checkBoxSelected(_ sender: UIButton) {
         selectedTask.status = !selectedTask.status
+        if selectedTask.status {
+            currentList.completeTask(at: taskIndex!)
+        } else {
+            currentList.reOpenTask(at: taskIndex!)
+        }
         updateOutlets()
         
+        // call back to tableview to reload data
+        updateTasksTable!()
+        
+        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadTaskData"),object: self)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,7 +52,7 @@ class TasksTableViewCell: UITableViewCell {
             taskNameLabel.textColor = UIColor.lightGray
             checkBoxImage.image = UIImage(named: "Checkbox Checked")
         } else { // incomplete
-            //taskNameLabel.textColor = UIColor.black
+            taskNameLabel.textColor = UIColor.black
             checkBoxImage.image = UIImage(named: "Checkbox Unchecked")
         }
     }

@@ -18,7 +18,9 @@ class TasksTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //NotificationCenter.default.addObserver(self, selector: Selector(("reloadTaskData")),name: NSNotification.Name(rawValue: "reloadTaskData"), object: nil)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,13 +44,11 @@ class TasksTableViewController: UITableViewController {
         // Create the Alert Controller
         let alertController = UIAlertController(title: "Add", message:
             "enter a description for you last", preferredStyle: UIAlertControllerStyle.alert)
-        
         // add text field for title/name
         alertController.addTextField { (textField) in
             textField.text = "Task to do" //default text. Change to empty after testing.
             textField.placeholder = "Task to do"
         }
-        
         // add the button actions - Left to right
         //    Cancel Button
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
@@ -82,14 +82,13 @@ class TasksTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if currentList.showCompleted {
-            print("showing all")
             return currentList.openTasks.count + currentList.closedTasks.count
         } else {
-            print("showing open")
             return currentList.openTasks.count
         }
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCellID", for: indexPath) as? TasksTableViewCell else {
             fatalError("The dequeued call is not a TasksTableViewCell")
@@ -98,9 +97,14 @@ class TasksTableViewController: UITableViewController {
         // Configure the cell...
         if indexPath.row < currentList.openTasks.count {
             cell.selectedTask = currentList.openTasks[indexPath.row]
+            cell.currentList = currentList
+            cell.taskIndex = indexPath.row
         } else {
             cell.selectedTask = currentList.closedTasks[indexPath.row - currentList.openTasks.count]
+            cell.currentList = currentList
+            cell.taskIndex = indexPath.row - currentList.openTasks.count
         }
+        cell.updateTasksTable = { () in self.tableView.reloadData() }
         cell.updateOutlets()
 
         return cell
@@ -117,6 +121,7 @@ class TasksTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            //let selectedTask = 
             confirmAlert(message: "Are you sure you want to delete task '\(currentList.openTasks[indexPath.row].title)'?", from: self, forYes: { (_) in
                 // Delete the row from the data source
                 self.currentList.openTasks.remove(at: indexPath.row)
@@ -156,12 +161,18 @@ class TasksTableViewController: UITableViewController {
     }
     */
     
+    // MARK: functions
     func updateShowCompletedButton() {
         if currentList.showCompleted {
             showCompletedButton.title = "hide ✓"
         } else {
             showCompletedButton.title = "show ✓"
         }
+    }
+    
+    func reloadTaskData(notification:NSNotification){
+        // reload function here, so when called it will reload the tableView
+        self.tableView.reloadData()
     }
 
 }

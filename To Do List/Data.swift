@@ -46,9 +46,9 @@ class ToDoList {
         if taskIndex >= closedTasks.count {
             fatalError("out of bounds on 'closedTasks'")
         }
-        let completedTask = openTasks[taskIndex]
-        completedTask.status = false
-        openTasks.append(completedTask)
+        let reopenedTask = closedTasks[taskIndex]
+        reopenedTask.status = false
+        openTasks.append(reopenedTask)
         closedTasks.remove(at: taskIndex)
     }
     
