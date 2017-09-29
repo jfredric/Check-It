@@ -76,6 +76,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To Do Lists" id="TFD-Gq-Lde" userLabel="To Do Lists Navigation Bar">
+                        <barButtonItem key="backBarButtonItem" title=" " id="OUJ-1k-R7X"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="organize" id="BUC-Vm-moG" userLabel="Load Sample Data">
                             <connections>
                                 <action selector="addSampleBarButtonTapped:" destination="Vwb-V5-4YS" id="fgq-An-Pek"/>

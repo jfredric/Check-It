@@ -129,12 +129,11 @@ class ListsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender) // is this needed?
         
         switch(segue.identifier ?? "") {
         case "ShowList":
+            // Get the new view controller using segue.destinationViewController.
             guard let tasktableViewController = segue.destination as? TasksTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
@@ -145,7 +144,10 @@ class ListsTableViewController: UITableViewController {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
+            
             let selectedList: ToDoList = Data.toDoLists[indexPath.row]
+            
+            // Pass the selected object to the new view controller.
             tasktableViewController.currentList = selectedList
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "nil_defaultSegue")")
