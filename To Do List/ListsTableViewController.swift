@@ -41,11 +41,12 @@ class ListsTableViewController: UITableViewController {
     @IBAction func addBarButtonTapped(_ sender: UIBarButtonItem) {
         // Create the Alert Controller
         let alertController = UIAlertController(title: "Add", message:
-            "enter a name for your list", preferredStyle: UIAlertControllerStyle.alert)
+            "Enter a name for your list", preferredStyle: UIAlertControllerStyle.alert)
         
         // add text field for title/name
         alertController.addTextField { (textField) in
-            textField.text = "List Name" //default text. Change to empty after testing.
+            textField.text = "" //default text. Change to empty after testing.
+            textField.placeholder = "name of list"
         }
         
         // add the button actions - Left to right
@@ -72,7 +73,6 @@ class ListsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Lists size: \(Data.toDoLists.count)")
         return Data.toDoLists.count
     }
 

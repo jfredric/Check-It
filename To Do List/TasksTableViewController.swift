@@ -43,11 +43,11 @@ class TasksTableViewController: UITableViewController {
     @IBAction func addNavButtonTapped(_ sender: Any) {
         // Create the Alert Controller
         let alertController = UIAlertController(title: "Add", message:
-            "enter a description for you last", preferredStyle: UIAlertControllerStyle.alert)
+            "Enter a name for you task", preferredStyle: UIAlertControllerStyle.alert)
         // add text field for title/name
         alertController.addTextField { (textField) in
-            textField.text = "Task to do" //default text. Change to empty after testing.
-            textField.placeholder = "Task to do"
+            textField.text = "" //default text. Change to empty after testing.
+            textField.placeholder = "task name..."
         }
         // add the button actions - Left to right
         //    Cancel Button
@@ -76,7 +76,7 @@ class TasksTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in  : UITableView) -> Int {
         return 1
     }
 
