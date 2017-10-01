@@ -3,8 +3,9 @@
 
 ### Description
 
-<p>
-<img align="right" src="https://farm5.staticflickr.com/4449/37375854126_f845c92c93_z.jpg">An iOS app for creating to-do lists. The app allows for the creation of multiple unique to-do lists. Each list holds any number of tasks. Each task can be marked as completed, which by default will remove the task from the list. If you wish to see previously completed tasks there is a toggle that will show them below the rest of your tasks. This will also allow you to uncheck tasks accidentally completed.
+  <img align="right" border=2px src="https://farm5.staticflickr.com/4449/37375854126_f845c92c93_z.jpg">
+
+An iOS app for creating to-do lists. The app allows for the creation of multiple unique to-do lists. Each list holds any number of tasks. Each task can be marked as completed, which by default will remove the task from the list. If you wish to see previously completed tasks there is a toggle that will show them below the rest of your tasks. This will also allow you to uncheck tasks accidentally completed.
 
 **Team Members**
 - Joshua Fredrickson ([github.com/jfredric](https://github.com/jfredric))
