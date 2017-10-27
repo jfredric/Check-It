@@ -22,6 +22,7 @@
 		EFCCC08D1FA37C2E00D2D180 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCCC08C1FA37B1A00D2D180 /* GoogleService-Info.plist */; };
 		EFCCC0901FA380BA00D2D180 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCCC08F1FA380BA00D2D180 /* Task.swift */; };
 		EFCCC0921FA3813E00D2D180 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCCC0911FA3813E00D2D180 /* ToDoList.swift */; };
+		EFCCC0941FA3D35000D2D180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCCC0931FA3D35000D2D180 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		EFCCC08C1FA37B1A00D2D180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFCCC08F1FA380BA00D2D180 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EFCCC0911FA3813E00D2D180 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
+		EFCCC0931FA3D35000D2D180 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */,
 				EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */,
 				EF3738421F7B7937002D49E1 /* Main.storyboard */,
+				EFCCC0931FA3D35000D2D180 /* LoginViewController.swift */,
 				EFCCC08E1FA380A300D2D180 /* Model */,
 				EF37385D1F7D6466002D49E1 /* Utility.swift */,
 				EF3738481F7B7937002D49E1 /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 				EFCCC0921FA3813E00D2D180 /* ToDoList.swift in Sources */,
 				EFCCC0901FA380BA00D2D180 /* Task.swift in Sources */,
 				EF3738541F7C2297002D49E1 /* ListsTableViewController.swift in Sources */,
+				EFCCC0941FA3D35000D2D180 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
