@@ -8,56 +8,9 @@
 
 import Foundation
 
-class Task {
-    var title: String = "title"
-    var description: String = ""
-    var status: Bool = false
-    
-    init(title newTitle: String, description newDesc: String, status newStatus: Bool) {
-        title = newTitle
-        description = newDesc
-        status = newStatus
-    }
-}
-
-class ToDoList {
-    var name: String = "Name"
-    var openTasks: [Task] = []
-    var closedTasks: [Task] = []
-    var description: String = ""
-    var showCompleted: Bool = false
-    
-    init(name newName: String, description newDesc: String) {
-        name = newName
-        description = newDesc
-    }
-    
-    func completeTask(at taskIndex: Int) {
-        if taskIndex >= openTasks.count {
-            fatalError("out of bounds on 'openTasks'")
-        }
-        let completedTask = openTasks[taskIndex]
-        completedTask.status = true
-        closedTasks.insert(completedTask, at: 0)
-        openTasks.remove(at: taskIndex)
-    }
-    
-    func reOpenTask(at taskIndex: Int) {
-        if taskIndex >= closedTasks.count {
-            fatalError("out of bounds on 'closedTasks'")
-        }
-        let reopenedTask = closedTasks[taskIndex]
-        reopenedTask.status = false
-        openTasks.append(reopenedTask)
-        closedTasks.remove(at: taskIndex)
-    }
-    
-}
-
 class Data {
     
     static var toDoLists: [ToDoList] = []
-    
 }
 
 func addSampleData() {
