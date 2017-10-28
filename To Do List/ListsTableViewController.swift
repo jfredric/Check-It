@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
+import Firebase
 
 class ListsTableViewController: UITableViewController {
     
+    let showLoginSegueID = "showLoginSegue-ID"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,18 @@ class ListsTableViewController: UITableViewController {
         
         //tableView.separatorColor = .clear
         //tableView.separatorStyle = .none
+        
+        // set listiner for login status, send to login screen if logged out.
+        Auth.auth().addStateDidChangeListener() { auth, user in
+            if user != nil { // user is logged in
+                print("logged in")
+            } else { // send to log in screen
+                print("user not logged in")
+                //self.navigationController?.performSegue(withIdentifier: self.showLoginSegueID, sender: nil)
+                let loginViewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.present(loginViewController, animated: true, completion: nil)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -149,6 +162,8 @@ class ListsTableViewController: UITableViewController {
             
             // Pass the selected object to the new view controller.
             tasktableViewController.currentList = selectedList
+        case self.showLoginSegueID :
+            break // nothing to prepare
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "nil_defaultSegue")")
         }
