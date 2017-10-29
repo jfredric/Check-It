@@ -7,17 +7,33 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class ToDoList {
     var name: String = "Name"
     var openTasks: [Task] = []
+    private var openTasksIDs: [String] = []
     var closedTasks: [Task] = []
+    private var closedTasksIDs: [String] = []
     var description: String = ""
     var showCompleted: Bool = false
+    var listRef: DatabaseReference
+    
+    // Firebase Keys
+    struct FirebaseKeys {
+        static let name = "name"
+        static let openTasks = "open-tasks"
+        static let closedTasks = "closed-tasks"
+        static let description = "description"
+        static let showCompleted = "show-completed"
+        static let listID = "list-id"
+    }
     
     init(name newName: String, description newDesc: String) {
         name = newName
         description = newDesc
+        listRef = AppDatabase.listDataRootRef.childByAutoId()
+        listRef.setValue(toAnyObject())
     }
     
     func completeTask(at taskIndex: Int) {
@@ -38,6 +54,17 @@ class ToDoList {
         reopenedTask.status = false
         openTasks.append(reopenedTask)
         closedTasks.remove(at: taskIndex)
+    }
+    
+    //incomplete
+    func toAnyObject() -> Any {
+        return [
+            FirebaseKeys.name : name,
+            FirebaseKeys.openTasks : openTasksIDs,
+            FirebaseKeys.closedTasks : openTasksIDs,
+            FirebaseKeys.description : description,
+            FirebaseKeys.showCompleted : showCompleted,
+        ]
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  Data.swift
+//  AppData.swift
 //  To Do List
 //
 //  Created by Joshua Fredrickson on 9/27/17.
@@ -9,29 +9,56 @@
 import Foundation
 import Firebase
 
-
-class Data {
+class AppData {
     
+    // MARK: PROPERTIES
     var toDoLists: [ToDoList] = []
-    var currentUser: User!
-    var userDataRef: DatabaseReference!
+    private var toDoListsIDs: [String] = []
+    var currentUser: User?
+    var userDataRef: DatabaseReference?
     
-    static let sharedInstance = Data()
+    // Controller delegate
+    var listDelegate: ListDataViewDelegate!
     
-    func configureForUser(user: User) {
+    // MARK: CONSTANTS
+    
+    
+    // Singleton
+    static let sharedInstance = AppData()
+    
+    private init() {
+        
+    }
+    
+    func configureFor(user: User?) {
         currentUser = user
-        userDataRef = Database.database().reference(withPath: currentUser.uid)
+        if currentUser != nil {
+            // fetches database reference for user list data, creates it if not found.
+            userDataRef = AppDatabase.userDataRootRef.child(currentUser!.uid)
+        } else {
+            toDoLists = []
+            toDoListsIDs = []
+            userDataRef = nil
+        }
     }
     
     func add(newList: ToDoList) {
-        toDoLists.append(newList)
+        if currentUser != nil {
+            toDoLists.append(newList)
+            toDoListsIDs.append(newList.listRef.key)
+            userDataRef!.setValue(toDoListsIDs)
+            // tell view controller to update view
+            listDelegate.insert(at: toDoLists.count-1)
+        }
     }
     
     func delete(at index: Int) {
         toDoLists.remove(at: index)
+        listDelegate.delete(at: index)
     }
     
 
+    // do not use at this point
     func addSampleData() {
         let groceryList = ToDoList(name: "Groceries", description: "")
         groceryList.openTasks.append(Task(title: "Milk", description: "", status: false))

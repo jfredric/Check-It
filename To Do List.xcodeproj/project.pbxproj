@@ -17,12 +17,14 @@
 		EF3738561F7C22E5002D49E1 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */; };
 		EF3738581F7C2318002D49E1 /* ListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3738571F7C2318002D49E1 /* ListsTableViewCell.swift */; };
 		EF37385A1F7C2333002D49E1 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */; };
-		EF37385C1F7C2C83002D49E1 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37385B1F7C2C83002D49E1 /* Data.swift */; };
+		EF37385C1F7C2C83002D49E1 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37385B1F7C2C83002D49E1 /* AppData.swift */; };
 		EF37385E1F7D6466002D49E1 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37385D1F7D6466002D49E1 /* Utility.swift */; };
 		EFCCC08D1FA37C2E00D2D180 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCCC08C1FA37B1A00D2D180 /* GoogleService-Info.plist */; };
 		EFCCC0901FA380BA00D2D180 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCCC08F1FA380BA00D2D180 /* Task.swift */; };
 		EFCCC0921FA3813E00D2D180 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCCC0911FA3813E00D2D180 /* ToDoList.swift */; };
 		EFCCC0941FA3D35000D2D180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCCC0931FA3D35000D2D180 /* LoginViewController.swift */; };
+		EFDFB3561FA58C580075C648 /* ListDataViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDFB3551FA58C580075C648 /* ListDataViewDelegate.swift */; };
+		EFDFB3581FA5A3A30075C648 /* FirebaseUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDFB3571FA5A3A30075C648 /* FirebaseUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +42,14 @@
 		EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		EF3738571F7C2318002D49E1 /* ListsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsTableViewCell.swift; sourceTree = "<group>"; };
 		EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
-		EF37385B1F7C2C83002D49E1 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		EF37385B1F7C2C83002D49E1 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		EF37385D1F7D6466002D49E1 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		EFCCC08C1FA37B1A00D2D180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFCCC08F1FA380BA00D2D180 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EFCCC0911FA3813E00D2D180 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 		EFCCC0931FA3D35000D2D180 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EFDFB3551FA58C580075C648 /* ListDataViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataViewDelegate.swift; sourceTree = "<group>"; };
+		EFDFB3571FA5A3A30075C648 /* FirebaseUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,7 @@
 				EFCCC0951FA53C5F00D2D180 /* Controllers */,
 				EF3738421F7B7937002D49E1 /* Main.storyboard */,
 				EFCCC08E1FA380A300D2D180 /* Model */,
-				EF37385D1F7D6466002D49E1 /* Utility.swift */,
+				EFDFB3591FA5A3EE0075C648 /* Utility */,
 				EF3738481F7B7937002D49E1 /* Assets.xcassets */,
 				EF37384A1F7B7937002D49E1 /* LaunchScreen.storyboard */,
 				EFCCC08C1FA37B1A00D2D180 /* GoogleService-Info.plist */,
@@ -115,9 +119,10 @@
 		EFCCC08E1FA380A300D2D180 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EF37385B1F7C2C83002D49E1 /* Data.swift */,
+				EF37385B1F7C2C83002D49E1 /* AppData.swift */,
 				EFCCC0911FA3813E00D2D180 /* ToDoList.swift */,
 				EFCCC08F1FA380BA00D2D180 /* Task.swift */,
+				EFDFB3551FA58C580075C648 /* ListDataViewDelegate.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -132,6 +137,15 @@
 				EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EFDFB3591FA5A3EE0075C648 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EF37385D1F7D6466002D49E1 /* Utility.swift */,
+				EFDFB3571FA5A3A30075C648 /* FirebaseUtility.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF37385C1F7C2C83002D49E1 /* Data.swift in Sources */,
+				EF37385C1F7C2C83002D49E1 /* AppData.swift in Sources */,
+				EFDFB3561FA58C580075C648 /* ListDataViewDelegate.swift in Sources */,
 				EF37385A1F7C2333002D49E1 /* TasksTableViewCell.swift in Sources */,
 				EF3738561F7C22E5002D49E1 /* TasksTableViewController.swift in Sources */,
+				EFDFB3581FA5A3A30075C648 /* FirebaseUtility.swift in Sources */,
 				EF3738581F7C2318002D49E1 /* ListsTableViewCell.swift in Sources */,
 				EF37385E1F7D6466002D49E1 /* Utility.swift in Sources */,
 				EF3738471F7B7937002D49E1 /* To_Do_List.xcdatamodeld in Sources */,

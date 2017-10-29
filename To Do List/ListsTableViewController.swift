@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ListsTableViewController: UITableViewController {
+class ListsTableViewController: UITableViewController, ListDataViewDelegate {
     
     let showLoginSegueID = "showLoginSegue-ID"
 
@@ -25,11 +25,14 @@ class ListsTableViewController: UITableViewController {
         //tableView.separatorColor = .clear
         //tableView.separatorStyle = .none
         
+        AppData.sharedInstance.listDelegate = self
+        
         // set listiner for login status, send to login screen if logged out.
+        
         Auth.auth().addStateDidChangeListener() { auth, user in
             if let newUser = user { // user logged in
                 print("logged in")
-                Data.sharedInstance.configureForUser(user: newUser)
+                AppData.sharedInstance.configureFor(user: newUser)
             } else { // send to log in screen
                 print("user not logged in")
                 //self.navigationController?.performSegue(withIdentifier: self.showLoginSegueID, sender: nil) // for push seque
@@ -47,7 +50,7 @@ class ListsTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func addSampleBarButtonTapped(_ sender: Any) {
-        Data.sharedInstance.addSampleData()
+        AppData.sharedInstance.addSampleData()
         
         self.tableView.reloadData()
     }
@@ -72,22 +75,38 @@ class ListsTableViewController: UITableViewController {
             let textField = alertController!.textFields![0] // Force unwrapping because we know it exists.
             let title = textField.text ?? ""
             print("add new list: \(title)")
-            Data.sharedInstance.add(newList: ToDoList(name: title, description: ""))
-            self.tableView.reloadData()
+            AppData.sharedInstance.add(newList: ToDoList(name: title, description: ""))
             }))
         
         // Present the Alert
         self.present(alertController, animated: true, completion: nil)
     }
     
-    // MARK: - Table view data source
+    // MARK: LISTDATAVIEW DELEGATE FUNCTIONS
+    func insert(at: Int) {
+        let indexPath = IndexPath(row: at, section: 0)
+        tableView.insertRows(at: [indexPath], with: .middle)
+    }
+    
+    func delete(at: Int) {
+        let indexPath = IndexPath(row: at, section: 0)
+        tableView.deleteRows(at: [indexPath], with: .left)
+    }
+    
+    func change(at: Int) {
+        let indexPath = IndexPath(row: at, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+
+    
+    // MARK: - Table view data source delegate functions
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Data.sharedInstance.toDoLists.count
+        return AppData.sharedInstance.toDoLists.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,27 +115,17 @@ class ListsTableViewController: UITableViewController {
         }
 
         // Configure the cell...
-        cell.nameLabel.text = Data.sharedInstance.toDoLists[indexPath.row].name
+        cell.nameLabel.text = AppData.sharedInstance.toDoLists[indexPath.row].name
         
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            confirmAlert(message: "Are you sure you want to delete '\(Data.sharedInstance.toDoLists[indexPath.row].name)' list?", from: self, forYes: { (_) in
+            confirmAlert(message: "Are you sure you want to delete '\(AppData.sharedInstance.toDoLists[indexPath.row].name)' list?", from: self, forYes: { (_) in
                 // Delete the row from the data source
-                Data.sharedInstance.delete(at: indexPath.row)
-                // Delet the row from the table view
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                AppData.sharedInstance.delete(at: indexPath.row)
             })
         }
     }
@@ -141,7 +150,7 @@ class ListsTableViewController: UITableViewController {
             }
             
             
-            let selectedList: ToDoList = Data.sharedInstance.toDoLists[indexPath.row]
+            let selectedList: ToDoList = AppData.sharedInstance.toDoLists[indexPath.row]
             
             // Pass the selected object to the new view controller.
             tasktableViewController.currentList = selectedList
