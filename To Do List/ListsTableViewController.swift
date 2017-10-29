@@ -27,11 +27,13 @@ class ListsTableViewController: UITableViewController {
         
         // set listiner for login status, send to login screen if logged out.
         Auth.auth().addStateDidChangeListener() { auth, user in
-            if user != nil { // user is logged in
+            if let newUser = user { // user logged in
                 print("logged in")
+                Data.sharedInstance.configureForUser(user: newUser)
             } else { // send to log in screen
                 print("user not logged in")
-                //self.navigationController?.performSegue(withIdentifier: self.showLoginSegueID, sender: nil)
+                //self.navigationController?.performSegue(withIdentifier: self.showLoginSegueID, sender: nil) // for push seque
+                // segue modally to login screen
                 let loginViewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                 self.present(loginViewController, animated: true, completion: nil)
             }
@@ -45,7 +47,7 @@ class ListsTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func addSampleBarButtonTapped(_ sender: Any) {
-        addSampleData()
+        Data.sharedInstance.addSampleData()
         
         self.tableView.reloadData()
     }
@@ -70,8 +72,7 @@ class ListsTableViewController: UITableViewController {
             let textField = alertController!.textFields![0] // Force unwrapping because we know it exists.
             let title = textField.text ?? ""
             print("add new list: \(title)")
-            Data.toDoLists.append(ToDoList(name: title, description: ""))
-            // update table?
+            Data.sharedInstance.add(newList: ToDoList(name: title, description: ""))
             self.tableView.reloadData()
             }))
         
@@ -86,7 +87,7 @@ class ListsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Data.toDoLists.count
+        return Data.sharedInstance.toDoLists.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,7 +96,7 @@ class ListsTableViewController: UITableViewController {
         }
 
         // Configure the cell...
-        cell.nameLabel.text = Data.toDoLists[indexPath.row].name
+        cell.nameLabel.text = Data.sharedInstance.toDoLists[indexPath.row].name
         
         return cell
     }
@@ -111,33 +112,15 @@ class ListsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            confirmAlert(message: "Are you sure you want to delete '\(Data.toDoLists[indexPath.row].name)' list?", from: self, forYes: { (_) in
+            confirmAlert(message: "Are you sure you want to delete '\(Data.sharedInstance.toDoLists[indexPath.row].name)' list?", from: self, forYes: { (_) in
                 // Delete the row from the data source
-                Data.toDoLists.remove(at: indexPath.row)
+                Data.sharedInstance.delete(at: indexPath.row)
                 // Delet the row from the table view
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -158,7 +141,7 @@ class ListsTableViewController: UITableViewController {
             }
             
             
-            let selectedList: ToDoList = Data.toDoLists[indexPath.row]
+            let selectedList: ToDoList = Data.sharedInstance.toDoLists[indexPath.row]
             
             // Pass the selected object to the new view controller.
             tasktableViewController.currentList = selectedList

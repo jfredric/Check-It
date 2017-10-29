@@ -99,12 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				EF37383E1F7B7937002D49E1 /* AppDelegate.swift */,
-				EF3738531F7C2297002D49E1 /* ListsTableViewController.swift */,
-				EF3738571F7C2318002D49E1 /* ListsTableViewCell.swift */,
-				EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */,
-				EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */,
+				EFCCC0951FA53C5F00D2D180 /* Controllers */,
 				EF3738421F7B7937002D49E1 /* Main.storyboard */,
-				EFCCC0931FA3D35000D2D180 /* LoginViewController.swift */,
 				EFCCC08E1FA380A300D2D180 /* Model */,
 				EF37385D1F7D6466002D49E1 /* Utility.swift */,
 				EF3738481F7B7937002D49E1 /* Assets.xcassets */,
@@ -124,6 +120,18 @@
 				EFCCC08F1FA380BA00D2D180 /* Task.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		EFCCC0951FA53C5F00D2D180 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EFCCC0931FA3D35000D2D180 /* LoginViewController.swift */,
+				EF3738531F7C2297002D49E1 /* ListsTableViewController.swift */,
+				EF3738571F7C2318002D49E1 /* ListsTableViewCell.swift */,
+				EF3738551F7C22E5002D49E1 /* TasksTableViewController.swift */,
+				EF3738591F7C2333002D49E1 /* TasksTableViewCell.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
