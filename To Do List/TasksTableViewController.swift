@@ -9,7 +9,7 @@
 
 import UIKit
 
-class TasksTableViewController: UITableViewController {
+class TasksTableViewController: UITableViewController, ListDataViewDelegate {
     
     var currentList: ToDoList = ToDoList(name: "", description: "") // current to do list
     
@@ -37,6 +37,20 @@ class TasksTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+    }
+    
+    // MARK: LIST DATA DELEGATE FUNCTIONS
+    
+    func insert(at: Int) {
+        
+    }
+    
+    func delete(at: Int) {
+        
+    }
+    
+    func change(at: Int) {
         
     }
 

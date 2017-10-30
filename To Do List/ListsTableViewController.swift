@@ -89,6 +89,7 @@ class ListsTableViewController: UITableViewController, ListDataViewDelegate {
     }
     
     func delete(at: Int) {
+        print("ltvc delete", at)
         let indexPath = IndexPath(row: at, section: 0)
         tableView.deleteRows(at: [indexPath], with: .left)
     }
@@ -125,6 +126,7 @@ class ListsTableViewController: UITableViewController, ListDataViewDelegate {
         if editingStyle == .delete {
             confirmAlert(message: "Are you sure you want to delete '\(AppData.sharedInstance.toDoLists[indexPath.row].name)' list?", from: self, forYes: { (_) in
                 // Delete the row from the data source
+                print("delete confirmed")
                 AppData.sharedInstance.delete(at: indexPath.row)
             })
         }
