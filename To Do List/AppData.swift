@@ -53,6 +53,10 @@ class AppData {
                 let key = snapshot.key
                 let name = snapshot.value ?? ""
                 print("observe removed child:",key,"-",name)
+                if let index = self.toDoListsIDs.index(of: key) {
+                    self.toDoLists.remove(at: index)
+                    self.listDelegate.delete(at: index)
+                }
             })
         } else {
             toDoLists = []
@@ -69,8 +73,10 @@ class AppData {
     }
     
     func delete(at index: Int) {
-        toDoLists.remove(at: index)
-        listDelegate.delete(at: index)
+        if currentUser != nil {
+            AppDatabase.listDataRootRef.child(toDoListsIDs[index]).removeValue()
+            userDataRef?.child(toDoListsIDs[index]).removeValue()
+        }
     }
     
 
