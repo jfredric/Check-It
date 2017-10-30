@@ -24,7 +24,7 @@ class ToDoList {
         static let name = "name"
         static let openTasks = "open-tasks"
         static let closedTasks = "closed-tasks"
-        static let description = "description"
+        static let description = "task-description"
         static let showCompleted = "show-completed"
         static let listID = "list-id"
     }
@@ -34,6 +34,26 @@ class ToDoList {
         description = newDesc
         listRef = AppDatabase.listDataRootRef.childByAutoId()
         listRef.setValue(toAnyObject())
+    }
+    
+    init(from snapshot: DataSnapshot) {
+        listRef = snapshot.ref
+        let newListData = snapshot.value as! [String:Any]
+        self.name = newListData[FirebaseKeys.name] as! String
+        if let newDescription = newListData[FirebaseKeys.description] {
+            self.description = newDescription as! String
+        }
+        self.showCompleted = newListData[FirebaseKeys.showCompleted] as! Bool
+//            openTasksIDs = newListData[FirebaseKeys.openTasks] as! [String]
+//            for taskID in openTasksIDs {
+//                //init task data from id
+//            }
+//            closedTasksIDs = newListData[FirebaseKeys.closedTasks] as! [String]
+//            for taskID in openTasksIDs {
+//                //init task data from id
+//            }
+        self.listRef.removeAllObservers() // new so this should be the only observe
+
     }
     
     func completeTask(at taskIndex: Int) {

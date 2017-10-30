@@ -35,6 +35,25 @@ class AppData {
         if currentUser != nil {
             // fetches database reference for user list data, creates it if not found.
             userDataRef = AppDatabase.userDataRootRef.child(currentUser!.uid)
+            // set listener for changes including initial load
+            userDataRef?.observe(.childAdded, with: { (snapshot) in
+                let newListID = snapshot.key
+                let name = snapshot.value ?? ""
+                print("observe new child(user-data)",newListID,"-",name)
+                // new login, loading first list or new add
+                AppDatabase.listDataRootRef.child(newListID).observe(.value, with: { (listSnapshot) in
+                    self.toDoListsIDs.append(newListID)
+                    let newList = ToDoList(from: listSnapshot) // download list data
+                    self.toDoLists.append(newList)
+                    // tell view controller to update view
+                    self.listDelegate.insert(at: self.toDoLists.count - 1)
+                })
+            })
+            userDataRef?.observe(.childRemoved, with: { (snapshot) in
+                let key = snapshot.key
+                let name = snapshot.value ?? ""
+                print("observe removed child:",key,"-",name)
+            })
         } else {
             toDoLists = []
             toDoListsIDs = []
@@ -44,11 +63,8 @@ class AppData {
     
     func add(newList: ToDoList) {
         if currentUser != nil {
-            toDoLists.append(newList)
-            toDoListsIDs.append(newList.listRef.key)
-            userDataRef!.setValue(toDoListsIDs)
-            // tell view controller to update view
-            listDelegate.insert(at: toDoLists.count-1)
+            let newListRef = userDataRef!.child(newList.listRef.key)
+            newListRef.setValue(newList.name)
         }
     }
     
