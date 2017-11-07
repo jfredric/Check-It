@@ -50,7 +50,7 @@ class ListsTableViewController: UITableViewController, ListDataViewDelegate {
     // MARK: - Actions
     
     @IBAction func addSampleBarButtonTapped(_ sender: Any) {
-        AppData.sharedInstance.addSampleData()
+        //AppData.sharedInstance.addSampleData()
         
         self.tableView.reloadData()
     }
@@ -97,6 +97,10 @@ class ListsTableViewController: UITableViewController, ListDataViewDelegate {
     func change(at: Int) {
         let indexPath = IndexPath(row: at, section: 0)
         tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func updateAll() {
+        tableView.reloadData()
     }
 
     

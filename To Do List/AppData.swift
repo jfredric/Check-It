@@ -36,13 +36,13 @@ class AppData {
             // fetches database reference for user list data, creates it if not found.
             userDataRef = AppDatabase.userDataRootRef.child(currentUser!.uid)
             // set listener for changes including initial load
-            userDataRef?.observe(.childAdded, with: { (snapshot) in
+            userDataRef?.observe(.childAdded, with: { (snapshot) in //userDataRef == listID's
                 let newListID = snapshot.key
                 let name = snapshot.value ?? ""
+                self.toDoListsIDs.append(newListID)
                 print("observe new child(user-data)",newListID,"-",name)
                 // new login, loading first list or new add
-                AppDatabase.listDataRootRef.child(newListID).observe(.value, with: { (listSnapshot) in
-                    self.toDoListsIDs.append(newListID)
+                AppDatabase.listDataRootRef.child(newListID).observeSingleEvent(of: .value, with: { (listSnapshot) in
                     let newList = ToDoList(from: listSnapshot) // download list data
                     self.toDoLists.append(newList)
                     // tell view controller to update view

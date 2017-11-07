@@ -9,10 +9,10 @@
 import UIKit
 
 class TasksTableViewCell: UITableViewCell {
-    var selectedTask: Task = Task(title: "Unknown", description: "", status: false)
-    var currentList: ToDoList = ToDoList(name: "Unknown", description: "")
+    var selectedTask: Task!
+    var currentList: ToDoList!
     var taskIndex: Int?
-    var updateTasksTable: (() -> ())? = nil
+    var updateTasksTable: (() -> ())?
     
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var checkBoxImage: UIImageView!
@@ -24,8 +24,8 @@ class TasksTableViewCell: UITableViewCell {
     }
     
     @IBAction func checkBoxSelected(_ sender: UIButton) {
-        selectedTask.status = !selectedTask.status
-        if selectedTask.status {
+        //selectedTask.status = !selectedTask.status
+        if !selectedTask.status {
             currentList.completeTask(at: taskIndex!)
         } else {
             currentList.reOpenTask(at: taskIndex!)
@@ -33,7 +33,7 @@ class TasksTableViewCell: UITableViewCell {
         updateOutlets()
         
         // call back to tableview to reload data
-        updateTasksTable!()
+        // updateTasksTable!() Handle by Model now
         
         //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadTaskData"),object: self)
     }

@@ -13,5 +13,6 @@ protocol ListDataViewDelegate {
     func insert(at: Int)
     func delete(at: Int)
     func change(at: Int)
+    func updateAll()
     
 }

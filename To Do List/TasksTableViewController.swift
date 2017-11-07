@@ -11,7 +11,7 @@ import UIKit
 
 class TasksTableViewController: UITableViewController, ListDataViewDelegate {
     
-    var currentList: ToDoList = ToDoList(name: "", description: "") // current to do list
+    var currentList: ToDoList!
     
     @IBOutlet weak var showCompletedButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationItem!
@@ -31,6 +31,9 @@ class TasksTableViewController: UITableViewController, ListDataViewDelegate {
         
         self.title = currentList.name
         //navBar.backBarButtonItem?.title = "" // Does not work
+        
+        currentList.listDelegate = self
+        
         updateShowCompletedButton()
     }
 
@@ -43,15 +46,22 @@ class TasksTableViewController: UITableViewController, ListDataViewDelegate {
     // MARK: LIST DATA DELEGATE FUNCTIONS
     
     func insert(at: Int) {
-        
+        let indexPath = IndexPath(row: at, section: 0)
+        tableView.insertRows(at: [indexPath], with: .middle)
     }
     
     func delete(at: Int) {
-        
+        let indexPath = IndexPath(row: at, section: 0)
+        tableView.deleteRows(at: [indexPath], with: .left)
     }
     
     func change(at: Int) {
-        
+        let indexPath = IndexPath(row: at, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func updateAll() {
+        tableView.reloadData()
     }
 
     // MARK: Actions
@@ -73,9 +83,7 @@ class TasksTableViewController: UITableViewController, ListDataViewDelegate {
             let textField = alertController!.textFields![0] // Force unwrapping because we know it exists.
             let title = textField.text ?? ""
             print("add new tasks to \(self.currentList.name): \(title)")
-            self.currentList.openTasks.append(Task(title: title, description: "", status: false))
-            // update table
-            self.tableView.reloadData()
+            self.currentList.add(newTask: Task(title: title, description: "", status: false))
         }))
         
         // Present the Alert
@@ -139,10 +147,7 @@ class TasksTableViewController: UITableViewController, ListDataViewDelegate {
         if editingStyle == .delete {
             //let selectedTask = 
             confirmAlert(message: "Are you sure you want to delete task '\(currentList.openTasks[indexPath.row].title)'?", from: self, forYes: { (_) in
-                // Delete the row from the data source
-                self.currentList.openTasks.remove(at: indexPath.row)
-                // Delete the row from the tableView
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.currentList.delete(at: indexPath.row)
             })
         } else if editingStyle == .insert { // how is this used???
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
