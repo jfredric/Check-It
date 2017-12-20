@@ -1,16 +1,16 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #1: To Do List
+# Check It
 
+<img border=2px src="https://farm5.staticflickr.com/4449/37375854126_f845c92c93_z.jpg" alt="screenshot" height="400"/>
 
 ### Description
-<img align="right" border=2px src="https://farm5.staticflickr.com/4449/37375854126_f845c92c93_z.jpg">
-An iOS app for creating to-do lists. The app allows for the creation of multiple unique to-do lists. Each list holds any number of tasks. Each task can be marked as completed, which by default will remove the task from the list. If you wish to see previously completed tasks there is a toggle that will show them below the rest of your tasks. This will also allow you to uncheck tasks accidentally completed.
+Check It is an iOS app for creating to-do lists. The app allows for the creation of multiple unique to-do lists. Each list holds any number of tasks. Each task can be marked as completed, which by default will remove the task from the list. If you wish to see previously completed tasks there is a toggle that will show them below the rest of your tasks. This will also allow you to uncheck tasks accidentally completed.
+
+Lists are synced to the cloud and can be used across multiple iOS devices.
 
 **Team Members**
 - Joshua Fredrickson ([github.com/jfredric](https://github.com/jfredric))
 
----
-
-### Prototype
+# Prototype
 
 **Stage 2** : Paper Sketch Up
 
@@ -26,7 +26,7 @@ An iOS app for creating to-do lists. The app allows for the creation of multiple
 ---
 
 #### Resources and Credits
-
+* [Project Requirements](documentation/requirements.md)
 * Checkbox icon from [icons8.com](https://icons8.com/icon/set/checkbox/ios7)
 * Add icon from [icons8.com](https://icons8.com/icon/set/add/ios7)
 
