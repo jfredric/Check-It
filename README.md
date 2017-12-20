@@ -7,7 +7,7 @@ Check It is an iOS app for creating to-do lists. The app allows for the creation
 
 Lists are synced to the cloud and can be used across multiple iOS devices.
 
-**Team Members**
+### Team Members
 - Joshua Fredrickson ([github.com/jfredric](https://github.com/jfredric))
 
 # Prototype
@@ -23,7 +23,7 @@ Lists are synced to the cloud and can be used across multiple iOS devices.
 
 ![](https://farm5.staticflickr.com/4503/36683031703_b496bd579e_z.jpg)
 
----
+# Links
 
 #### Resources and Credits
 * [Project Requirements](documentation/requirements.md)
