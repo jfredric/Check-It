@@ -64,8 +64,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }) // dismiss push modally segue
                 // self.navigationController?.popViewController(animated: true) // dismiss push segue
             } else {
-                print("Login failed: \(error?.localizedDescription)")
-                messageAlert(title: "Login Failure", message: error?.localizedDescription, from: self)
+                print("Login failed: \(error?.localizedDescription ?? "Unknown error")")
+                messageAlert(title: "Login Failure", message: error?.localizedDescription ?? "Unknown error", from: self)
             }
         }
     }
@@ -106,8 +106,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     // dismiss?
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    print("sign-up failed: \(error?.localizedDescription)")
-                    messageAlert(title: "Sign-Up Failed", message: error?.localizedDescription, from: self)
+                    print("Sign-up failed: \(error?.localizedDescription ?? "Unknown error")")
+                    messageAlert(title: "Sign-Up Failed", message: error?.localizedDescription ?? "Unknown error", from: self)
                 }
             }
         }
