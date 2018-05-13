@@ -4,4 +4,4 @@ xcode_project: "To Do List.xcodeproj" # path to your xcodeproj folder
 xcode_scheme: "To Do ListTests"
 
 script:
-    - xcodebuild clean build -sdk iphonesimulator -workspace To\ Do\ List.xcworkspace -scheme To\ Do\ ListTests CODE_SIGNING_REQUIRED=NO
+    - xcodebuild clean build -sdk iphonesimulator -workspace To\ Do\ List.xcworkspace -scheme To\ Do\ List CODE_SIGNING_REQUIRED=NO
