@@ -192,7 +192,6 @@
 				EF3738381F7B7937002D49E1 /* Frameworks */,
 				EF3738391F7B7937002D49E1 /* Resources */,
 				EF123B06ACC7ADA4103AB667 /* [CP] Embed Pods Frameworks */,
-				1922CE6E530E7F4E3550D8DC /* [CP] Copy Pods Resources */,
 				196902572017F36000285B5A /* Set Build Version Number */,
 			);
 			buildRules = (
@@ -284,21 +283,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1922CE6E530E7F4E3550D8DC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-To Do List/Pods-To Do List-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		196902572017F36000285B5A /* Set Build Version Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
