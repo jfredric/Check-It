@@ -1,6 +1,7 @@
 os: osx
 language: swift
-xcode_project: "To Do List.xcodeproj" # path to your xcodeproj folder
+osx_image: xcode9.3
+xcode_project: "To Do List.xcworkspace" # path to your xcodeproj folder
 xcode_scheme: "To Do ListTests"
 
 script:
