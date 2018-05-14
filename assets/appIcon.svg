@@ -16,8 +16,8 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    shape-rendering="crispEdges"
-   sodipodi:docname="AppIcon.svg"
-   inkscape:export-filename="U:\jfredrickson\Development\repositories\Check-It\assets\appIcon.png"
+   sodipodi:docname="appIcon.svg"
+   inkscape:export-filename="U:\jfredrickson\Development\repositories\Check-It\assets\appIcon.dev.png"
    inkscape:export-xdpi="72"
    inkscape:export-ydpi="72">
   <defs
@@ -30,10 +30,10 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="515.35232"
-     inkscape:cy="703.23258"
+     inkscape:cx="397.34036"
+     inkscape:cy="460.79597"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="true"
      units="pt"
      fit-margin-top="0"
@@ -58,7 +58,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -116,4 +116,30 @@
        id="path4789-5-3"
        inkscape:connector-curvature="0" />
   </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Banner">
+    <rect
+       style="fill:#c85050;fill-opacity:1;stroke:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4148"
+       width="1260"
+       height="680"
+       x="-636.5614"
+       y="1206.0874"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4158"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#fa8282;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,22.493235,922.7269)"><flowRegion
+         id="flowRegion4160"><rect
+           id="rect4162"
+           width="1260"
+           height="300"
+           x="0"
+           y="570"
+           style="fill:#fa8282;fill-opacity:1;" /></flowRegion><flowPara
+         id="flowPara4164"
+         style="font-size:180px;text-align:center;text-anchor:middle;fill:#fa8282;fill-opacity:1;">DEV</flowPara></flowRoot>  </g>
 </svg>
